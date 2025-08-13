@@ -1,0 +1,839 @@
+/* 
+===========================================
+Nga Tipu Aotearoa - Native Plants Database
+===========================================
+A comprehensive CSS stylesheet for the New Zealand native plants database
+Educational comments throughout for learning purposes
+*/
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  /* Primary color palette inspired by NZ landscapes */
+  --primary-green: #2D5016;      /* Deep forest green */
+  --secondary-green: #4A7C59;    /* Native bush green */
+  --accent-gold: #D4A574;        /* Coastal sand */
+  --highlight-blue: #6B9DC2;     /* Sky/water blue */
+  --neutral-light: #F5F5F0;      /* Off-white */
+  --neutral-dark: #2C3E2D;       /* Dark text */
+  --warning-orange: #E67E22;     /* Threat indicators */
+  
+  /* Conservation status colors */
+  --status-critical: #C0392B;    /* Critically threatened */
+  --status-threatened: #E74C3C;  /* Threatened */
+  --status-at-risk: #F39C12;     /* At risk */
+  --status-declining: #E67E22;   /* Declining */
+  --status-recovering: #27AE60;  /* Recovering */
+  --status-not-threatened: #2ECC71; /* Not threatened */
+  
+  /* Typography */
+  --font-headings: 'Poppins', sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  
+  /* Spacing system (8px base) */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+  --space-xxl: 4rem;    /* 64px */
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 12px 24px rgba(0, 0, 0, 0.18);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+}
+
+/* ===== RESET AND BASE STYLES ===== */
+
+/* Modern CSS reset for consistent cross-browser styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px; /* Base font size for rem calculations */
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--neutral-dark);
+  background-color: var(--neutral-light);
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Typography hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-headings);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: var(--space-sm);
+  max-width: 65ch; /* Optimal reading length */
+}
+
+/* Links and interactive elements */
+a {
+  color: var(--primary-green);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+  color: var(--secondary-green);
+  outline: 2px solid transparent;
+}
+
+/* Button reset and base styles */
+button {
+  border: none;
+  background: none;
+  font: inherit;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+}
+
+/* Images responsive by default */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* List styles */
+ul, ol {
+  list-style: none;
+}
+
+/* ===== LAYOUT COMPONENTS ===== */
+
+/* Container for consistent page width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-sm);
+}
+
+/* ===== HEADER AND NAVIGATION ===== */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(45, 80, 22, 0.1);
+  z-index: 1000;
+  transition: all var(--transition-normal);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-sm) var(--space-md);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Logo and branding */
+.logo h1 {
+  font-size: 1.5rem;
+  color: var(--primary-green);
+  margin: 0;
+}
+
+.tagline {
+  font-size: 0.75rem;
+  color: var(--secondary-green);
+  font-weight: 300;
+}
+
+/* Navigation menu */
+.nav-menu {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  padding: var(--space-xs) var(--space-sm);
+  font-weight: 500;
+  transition: color var(--transition-fast);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--secondary-green);
+}
+
+/* Animated underline for active/hover states */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--accent-gold);
+  transition: all var(--transition-fast);
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Search functionality */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  padding: var(--space-xs) var(--space-sm);
+  border: 2px solid var(--primary-green);
+  border-radius: var(--radius-md);
+  background: white;
+  font-size: 0.9rem;
+  width: 200px;
+  transition: all var(--transition-fast);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--secondary-green);
+  box-shadow: 0 0 0 2px rgba(74, 124, 89, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: var(--space-xs);
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/* Mobile menu toggle - hidden by default */
+.mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  padding: var(--space-xs);
+}
+
+.mobile-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--primary-green);
+  transition: all var(--transition-fast);
+}
+
+/* ===== HERO SECTION ===== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+  background-image: url('https://picsum.photos/1920/1080?random=nature');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(45, 80, 22, 0.6);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: var(--space-xl);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: var(--space-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xl);
+  opacity: 0.95;
+  max-width: none;
+}
+
+/* Call-to-action button */
+.cta-button {
+  display: inline-block;
+  padding: var(--space-md) var(--space-xl);
+  background: var(--accent-gold);
+  color: var(--neutral-dark);
+  font-weight: 600;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-normal);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: #E6B887;
+}
+
+/* ===== SECTION STYLES ===== */
+
+.categories-section,
+.featured-plants,
+.threats-section {
+  padding: var(--space-xxl) 0;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--primary-green);
+  margin-bottom: var(--space-sm);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--secondary-green);
+  font-size: 1.125rem;
+  margin-bottom: var(--space-xl);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ===== CATEGORIES GRID ===== */
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.category-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.category-image {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.category-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.category-card:hover .category-image img {
+  transform: scale(1.05);
+}
+
+.category-content {
+  padding: var(--space-md);
+}
+
+.category-content h3 {
+  color: var(--primary-green);
+  margin-bottom: var(--space-xs);
+}
+
+.category-content p {
+  color: var(--secondary-green);
+  margin-bottom: var(--space-sm);
+}
+
+.category-count {
+  display: inline-block;
+  background: var(--accent-gold);
+  color: var(--neutral-dark);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ===== PLANTS GRID ===== */
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+.plant-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.plant-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.plant-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.plant-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.plant-card:hover .plant-image img {
+  transform: scale(1.03);
+}
+
+/* Conservation status badges */
+.conservation-badge {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.critically-threatened { background: var(--status-critical); }
+.threatened { background: var(--status-threatened); }
+.at-risk { background: var(--status-at-risk); }
+.declining { background: var(--status-declining); }
+.recovering { background: var(--status-recovering); }
+.not-threatened { background: var(--status-not-threatened); }
+
+.plant-content {
+  padding: var(--space-md);
+}
+
+.plant-name-maori {
+  color: var(--primary-green);
+  font-size: 1.25rem;
+  margin-bottom: var(--space-xs);
+}
+
+.plant-name-english {
+  color: var(--secondary-green);
+  font-style: italic;
+  font-size: 0.9rem;
+  margin-bottom: var(--space-sm);
+}
+
+.plant-description {
+  color: var(--neutral-dark);
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
+}
+
+.plant-details {
+  display: flex;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.habitat-tag,
+.location-tag {
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-sm);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.habitat-tag {
+  background: rgba(74, 124, 89, 0.1);
+  color: var(--secondary-green);
+}
+
+.location-tag {
+  background: rgba(107, 157, 194, 0.1);
+  color: var(--highlight-blue);
+}
+
+.learn-more-btn {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  background: var(--primary-green);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.learn-more-btn:hover {
+  background: var(--secondary-green);
+  transform: translateY(-1px);
+}
+
+/* ===== THREATS SECTION ===== */
+
+.threats-section {
+  background: rgba(45, 80, 22, 0.05);
+}
+
+.threats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-lg);
+}
+
+.threat-card {
+  background: white;
+  padding: var(--space-lg);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.threat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.threat-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+}
+
+.threat-card h3 {
+  color: var(--warning-orange);
+  margin-bottom: var(--space-sm);
+}
+
+.threat-card p {
+  color: var(--neutral-dark);
+  max-width: none;
+}
+
+/* ===== FOOTER ===== */
+
+.footer {
+  background: var(--primary-green);
+  color: var(--neutral-light);
+  padding: var(--space-xxl) 0 var(--space-lg);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.footer-section h3,
+.footer-section h4 {
+  color: var(--accent-gold);
+  margin-bottom: var(--space-md);
+}
+
+.footer-section ul li {
+  margin-bottom: var(--space-xs);
+}
+
+.footer-section a {
+  color: var(--neutral-light);
+  opacity: 0.8;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-section a:hover {
+  opacity: 1;
+  color: var(--accent-gold);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(212, 165, 116, 0.3);
+  opacity: 0.7;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet styles (768px - 1023px) */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .plants-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  .search-input {
+    width: 160px;
+  }
+}
+
+/* Mobile styles (320px - 767px) */
+@media (max-width: 768px) {
+  /* Header adjustments */
+  .nav-menu {
+    display: none; /* Hidden by default, would need JS to show */
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .search-container {
+    order: -1;
+  }
+  
+  .search-input {
+    width: 140px;
+    font-size: 0.8rem;
+  }
+  
+  /* Hero section */
+  .hero-content {
+    padding: var(--space-md);
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Section spacing */
+  .categories-section,
+  .featured-plants,
+  .threats-section {
+    padding: var(--space-xl) 0;
+  }
+  
+  /* Grid adjustments */
+  .categories-grid,
+  .plants-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .threats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+  }
+  
+  /* Typography scaling */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+  }
+}
+
+/* Extra small mobile (320px - 479px) */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-xs);
+  }
+  
+  .nav-container {
+    padding: var(--space-xs) var(--space-sm);
+  }
+  
+  .hero-title {
+    font-size: 1.75rem;
+  }
+  
+  .plants-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .plant-details {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
+
+/* Focus styles for keyboard navigation */
+*:focus {
+  outline: 2px solid var(--highlight-blue);
+  outline-offset: 2px;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-green: #000000;
+    --secondary-green: #333333;
+    --neutral-dark: #000000;
+    --accent-gold: #FFD700;
+  }
+}
+
+/* Print styles */
+@media print {
+  .header,
+  .footer,
+  .cta-button,
+  .learn-more-btn {
+    display: none;
+  }
+  
+  .hero {
+    height: auto;
+    padding: var(--space-lg);
+  }
+  
+  .plant-card,
+  .category-card {
+    break-inside: avoid;
+  }
+}
+
+/* ===== ADDITIONAL ENHANCEMENTS ===== */
+
+/* Smooth scrolling offset for fixed header */
+html {
+  scroll-padding-top: 80px;
+}
+
+/* Loading state for images */
+img[loading="lazy"] {
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+img[loading="lazy"].loaded {
+  opacity: 1;
+}
+
+/* Selection styling */
+::selection {
+  background: var(--accent-gold);
+  color: var(--neutral-dark);
+}
+
+::-moz-selection {
+  background: var(--accent-gold);
+  color: var(--neutral-dark);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-green);
+  border-radius: var(--radius-sm);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-green);
+}

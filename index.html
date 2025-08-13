@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nga Tipu Aotearoa - New Zealand Native Plants Database</title>
+    
+    <!-- Google Fonts for typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Main stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- SEO and accessibility meta tags -->
+    <meta name="description" content="Discover Aotearoa's native flora - comprehensive database of New Zealand native plants, their habitats, and conservation status">
+    <meta name="keywords" content="New Zealand, native plants, flora, conservation, Maori names, ecology">
+</head>
+<body>
+    <!-- Fixed navigation header -->
+    <header class="header" role="banner">
+        <nav class="nav-container" role="navigation" aria-label="Main navigation">
+            <!-- Site logo and title -->
+            <div class="logo">
+                <h1>Nga Tipu Aotearoa</h1>
+                <span class="tagline">Native Plants of New Zealand</span>
+            </div>
+            
+            <!-- Navigation menu -->
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+                <li><a href="#plants" class="nav-link">Plants</a></li>
+                <li><a href="#locations" class="nav-link">Locations</a></li>
+                <li><a href="#threats" class="nav-link">Threats</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            
+            <!-- Search functionality -->
+            <div class="search-container">
+                <input type="search" class="search-input" placeholder="Search plants..." aria-label="Search native plants">
+                <button class="search-button" aria-label="Search">🔍</button>
+            </div>
+            
+            <!-- Mobile menu toggle -->
+            <button class="mobile-toggle" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main content area -->
+    <main class="main-content" role="main">
+        <!-- Hero section with call-to-action -->
+        <section class="hero" id="home" role="banner">
+            <div class="hero-content">
+                <h2 class="hero-title">Discover Aotearoa's Native Flora</h2>
+                <p class="hero-subtitle">Explore the unique plant life that makes New Zealand's ecosystems so special</p>
+                <a href="#plants" class="cta-button" role="button">Explore Plants</a>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Plant categories grid -->
+        <section class="categories-section" id="plants" role="region" aria-labelledby="categories-heading">
+            <div class="container">
+                <h2 id="categories-heading" class="section-title">Plant Categories</h2>
+                <p class="section-subtitle">Discover native plants organized by their natural habitats and characteristics</p>
+                
+                <div class="categories-grid">
+                    <!-- Tree category -->
+                    <article class="category-card">
+                        <div class="category-image">
+                            <img src="https://picsum.photos/300/200?random=1" alt="Native trees of New Zealand" loading="lazy">
+                        </div>
+                        <div class="category-content">
+                            <h3>Trees</h3>
+                            <p>Ancient giants like Kauri, Rimu, and Pohutukawa</p>
+                            <span class="category-count">25+ species</span>
+                        </div>
+                    </article>
+
+                    <!-- Shrubs category -->
+                    <article class="category-card">
+                        <div class="category-image">
+                            <img src="https://picsum.photos/300/200?random=2" alt="Native shrubs of New Zealand" loading="lazy">
+                        </div>
+                        <div class="category-content">
+                            <h3>Shrubs</h3>
+                            <p>Medicinal Manuka, Kawakawa, and Kanuka</p>
+                            <span class="category-count">18+ species</span>
+                        </div>
+                    </article>
+
+                    <!-- Ferns category -->
+                    <article class="category-card">
+                        <div class="category-image">
+                            <img src="https://picsum.photos/300/200?random=3" alt="Native ferns of New Zealand" loading="lazy">
+                        </div>
+                        <div class="category-content">
+                            <h3>Ferns</h3>
+                            <p>Iconic Ponga (Silver Fern) and tree ferns</p>
+                            <span class="category-count">40+ species</span>
+                        </div>
+                    </article>
+
+                    <!-- Coastal plants category -->
+                    <article class="category-card">
+                        <div class="category-image">
+                            <img src="https://picsum.photos/300/200?random=4" alt="Coastal plants of New Zealand" loading="lazy">
+                        </div>
+                        <div class="category-content">
+                            <h3>Coastal</h3>
+                            <p>Hardy shore plants like Pingao and Spinifex</p>
+                            <span class="category-count">15+ species</span>
+                        </div>
+                    </article>
+
+                    <!-- Alpine plants category -->
+                    <article class="category-card">
+                        <div class="category-image">
+                            <img src="https://picsum.photos/300/200?random=5" alt="Alpine plants of New Zealand" loading="lazy">
+                        </div>
+                        <div class="category-content">
+                            <h3>Alpine</h3>
+                            <p>High altitude specialists like Mount Cook Lily</p>
+                            <span class="category-count">30+ species</span>
+                        </div>
+                    </article>
+
+                    <!-- Wetland plants category -->
+                    <article class="category-card">
+                        <div class="category-image">
+                            <img src="https://picsum.photos/300/200?random=6" alt="Wetland plants of New Zealand" loading="lazy">
+                        </div>
+                        <div class="category-content">
+                            <h3>Wetland</h3>
+                            <p>Water-loving Raupo, Oioi, and Cabbage Tree</p>
+                            <span class="category-count">12+ species</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured plants showcase -->
+        <section class="featured-plants" role="region" aria-labelledby="featured-heading">
+            <div class="container">
+                <h2 id="featured-heading" class="section-title">Featured Native Plants</h2>
+                <p class="section-subtitle">Discover some of Aotearoa's most iconic and important native species</p>
+                
+                <div class="plants-grid">
+                    <!-- Kauri -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=7" alt="Kauri tree" loading="lazy">
+                            <span class="conservation-badge critically-threatened" aria-label="Conservation status: Critically threatened">Critically Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Kauri</h3>
+                            <p class="plant-name-english">Agathis australis</p>
+                            <p class="plant-description">Ancient forest giant found in Northland, can live over 2000 years</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Forest</span>
+                                <span class="location-tag">Northland</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Kauri">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Pohutukawa -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=8" alt="Pohutukawa tree" loading="lazy">
+                            <span class="conservation-badge not-threatened" aria-label="Conservation status: Not threatened">Not Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Pōhutukawa</h3>
+                            <p class="plant-name-english">Metrosideros excelsa</p>
+                            <p class="plant-description">Crimson coastal Christmas tree, symbol of New Zealand summer</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Coastal</span>
+                                <span class="location-tag">North Island</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Pohutukawa">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Silver Fern -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=9" alt="Silver Fern" loading="lazy">
+                            <span class="conservation-badge not-threatened" aria-label="Conservation status: Not threatened">Not Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Ponga</h3>
+                            <p class="plant-name-english">Cyathea dealbata</p>
+                            <p class="plant-description">National symbol with distinctive silver undersides</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Forest</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Silver Fern">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Manuka -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=10" alt="Manuka shrub" loading="lazy">
+                            <span class="conservation-badge not-threatened" aria-label="Conservation status: Not threatened">Not Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Mānuka</h3>
+                            <p class="plant-name-english">Leptospermum scoparium</p>
+                            <p class="plant-description">Medicinal tea tree famous for honey production</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Scrubland</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Manuka">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Kawakawa -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=11" alt="Kawakawa plant" loading="lazy">
+                            <span class="conservation-badge not-threatened" aria-label="Conservation status: Not threatened">Not Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Kawakawa</h3>
+                            <p class="plant-name-english">Piper excelsum</p>
+                            <p class="plant-description">Heart-shaped medicinal leaves used in traditional healing</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Forest</span>
+                                <span class="location-tag">North Island</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Kawakawa">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Harakeke -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=12" alt="Harakeke flax plant" loading="lazy">
+                            <span class="conservation-badge at-risk" aria-label="Conservation status: At risk">At Risk</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Harakeke</h3>
+                            <p class="plant-name-english">Phormium tenax</p>
+                            <p class="plant-description">Traditional weaving flax, culturally significant to Māori</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Wetland</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Harakeke">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Rata -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=13" alt="Rata tree" loading="lazy">
+                            <span class="conservation-badge declining" aria-label="Conservation status: Declining">Declining</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Rata</h3>
+                            <p class="plant-name-english">Metrosideros robusta</p>
+                            <p class="plant-description">Spectacular red flowering canopy tree</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Forest</span>
+                                <span class="location-tag">North Island</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Rata">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Rimu -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=14" alt="Rimu tree" loading="lazy">
+                            <span class="conservation-badge not-threatened" aria-label="Conservation status: Not threatened">Not Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Rimu</h3>
+                            <p class="plant-name-english">Dacrydium cupressinum</p>
+                            <p class="plant-description">Distinctive drooping branchlet conifer</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Forest</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Rimu">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Cabbage Tree -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=15" alt="Cabbage Tree" loading="lazy">
+                            <span class="conservation-badge not-threatened" aria-label="Conservation status: Not threatened">Not Threatened</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Tī Kōuka</h3>
+                            <p class="plant-name-english">Cordyline australis</p>
+                            <p class="plant-description">Distinctive palm-like native with cultural significance</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Diverse</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Cabbage Tree">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Mount Cook Lily -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=16" alt="Mount Cook Lily" loading="lazy">
+                            <span class="conservation-badge at-risk" aria-label="Conservation status: At risk">At Risk</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Mount Cook Lily</h3>
+                            <p class="plant-name-english">Ranunculus lyallii</p>
+                            <p class="plant-description">World's largest buttercup, alpine specialist</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Alpine</span>
+                                <span class="location-tag">South Island</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Mount Cook Lily">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Pingao -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=17" alt="Pingao grass" loading="lazy">
+                            <span class="conservation-badge at-risk" aria-label="Conservation status: At risk">At Risk</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Pīngao</h3>
+                            <p class="plant-name-english">Ficinia spiralis</p>
+                            <p class="plant-description">Golden coastal sedge important for dune stability</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Coastal</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Pingao">Learn More</button>
+                        </div>
+                    </article>
+
+                    <!-- Raupo -->
+                    <article class="plant-card">
+                        <div class="plant-image">
+                            <img src="https://picsum.photos/300/200?random=18" alt="Raupo bullrush" loading="lazy">
+                            <span class="conservation-badge declining" aria-label="Conservation status: Declining">Declining</span>
+                        </div>
+                        <div class="plant-content">
+                            <h3 class="plant-name-maori">Raupō</h3>
+                            <p class="plant-name-english">Typha orientalis</p>
+                            <p class="plant-description">Native bullrush essential for wetland ecosystems</p>
+                            <div class="plant-details">
+                                <span class="habitat-tag">Wetland</span>
+                                <span class="location-tag">Nationwide</span>
+                            </div>
+                            <button class="learn-more-btn" aria-label="Learn more about Raupo">Learn More</button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conservation threats section -->
+        <section class="threats-section" id="threats" role="region" aria-labelledby="threats-heading">
+            <div class="container">
+                <h2 id="threats-heading" class="section-title">Conservation Threats</h2>
+                <p class="section-subtitle">Understanding the challenges facing our native flora</p>
+                
+                <div class="threats-grid">
+                    <article class="threat-card">
+                        <div class="threat-icon">🦌</div>
+                        <h3>Introduced Pests</h3>
+                        <p>Possums, deer, and goats damage native plants and compete for resources</p>
+                    </article>
+                    
+                    <article class="threat-card">
+                        <div class="threat-icon">🏗️</div>
+                        <h3>Habitat Loss</h3>
+                        <p>Urban development and farming reduce native plant habitats</p>
+                    </article>
+                    
+                    <article class="threat-card">
+                        <div class="threat-icon">🌡️</div>
+                        <h3>Climate Change</h3>
+                        <p>Changing temperatures and rainfall patterns affect plant distributions</p>
+                    </article>
+                    
+                    <article class="threat-card">
+                        <div class="threat-icon">🌿</div>
+                        <h3>Invasive Species</h3>
+                        <p>Aggressive weeds like gorse and wilding pines outcompete natives</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Site footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nga Tipu Aotearoa</h3>
+                    <p>Preserving knowledge of New Zealand's unique native flora for future generations.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#plants">Plant Database</a></li>
+                        <li><a href="#locations">Locations</a></li>
+                        <li><a href="#threats">Conservation</a></li>
+                        <li><a href="#about">About Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Identification Guide</a></li>
+                        <li><a href="#">Native Gardening</a></li>
+                        <li><a href="#">Educational Materials</a></li>
+                        <li><a href="#">Research Papers</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="#">Newsletter</a></li>
+                        <li><a href="#">Social Media</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nga Tipu Aotearoa. Educational resource for native plant conservation.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
